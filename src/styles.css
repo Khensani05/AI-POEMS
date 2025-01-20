@@ -61,11 +61,17 @@ a:hover {
   background-color: #2e8b6b;
 }
 
+#example {
+  text-align: center;
+  opacity: 50%;
+  font-size: small;
+}
+
 footer {
-  margin-top: auto;
+  margin-bottom: 0;
   background-color: #2a3d66;
   color: white;
-  padding: 15px;
+  padding: 30px;
   text-align: center;
   font-size: 14px;
 }
