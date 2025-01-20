@@ -45,6 +45,18 @@ a:hover {
   max-width: 400px;
 }
 
+#txtInstructions {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #2a3d66;
+  background-color: #d1e3ff;
+  width: 80%;
+  max-width: 400px;
+}
+
 #btnSubmit {
   display: block;
   margin: 20px auto;
@@ -65,6 +77,26 @@ a:hover {
   text-align: center;
   opacity: 50%;
   font-size: small;
+}
+
+.blinking {
+  font-size: 20px;
+  font-weight: bold;
+  color: #3a4a3f;
+  text-align: center;
+  animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 footer {

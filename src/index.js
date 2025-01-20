@@ -1,11 +1,11 @@
 function displayPoem(response) {
   let poemBox = document.querySelector("#thepoem");
-  poemBox.innerHTML = "<p>Generating Poem...</p>";
+  poemBox.innerHTML = ""; // Clear the "Generating Poem..." message
 
   new Typewriter("#thepoem", {
     strings: response.data.answer,
     autoStart: true,
-    delay: 1,
+    delay: 30,
     cursor: "",
   });
 }
@@ -13,11 +13,17 @@ function displayPoem(response) {
 function generatepoem(event) {
   event.preventDefault();
 
-  let instructions = document.querySelector("#txtTopic");
+  let topicElement = document.querySelector("#txtTopic");
+  let instructionsElement = document.querySelector("#txtInstructions");
+  let poemBox = document.querySelector("#thepoem");
+
+  // Show "Generating Poem..." with blinking effect
+  poemBox.innerHTML =
+    "<p class='blinking'>Generating Poem... Please wait ✨</p>";
+
   let apiKey = "b03c74bff4oa46bc3d3tee6230146d23";
-  let prompt = `user instructions: Generate a poem in XiTsonga language about ${txtTopic.value}`;
-  let context =
-    "Make it sweet, kind and short. Make sure to follow user instructions. Just write the generate the poem alone. Please seperate the lines by a <br />";
+  let prompt = `user instructions: Generate a poem in XiTsonga language about ${topicElement.value}`;
+  let context = `Make sure the poem is following the ${instructionsElement.value}. Make sure to follow user instructions. Just write the generate the poem alone. Please separate the lines by a <br />`;
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   axios.get(apiURL).then(displayPoem);
